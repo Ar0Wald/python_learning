@@ -30,7 +30,8 @@ while True:
         return x, y, inverted
 
 # Different possible results
-    while True:
+    exit_the_script = False
+    while not exit_the_script:
         try:
             if choice == "1":
                 print(x + y)      # Sum
@@ -51,13 +52,17 @@ while True:
         # Wait for user input before exiting the script
             answer = input("Do you want to try again? (y/n): ")
             if answer.lower() == "n":
-               break
+                exit_the_script = True
+            else:
             
             # Reset the values if you want to try again because entire code is wrapped inside a while loop
-            x = 0
-            y = 0
-            break
+                x = 0
+                y = 0
+                break
 
         except ValueError:
             print("Error: Please enter a valid choice")
+    
+    if exit_the_script:
+        break
         
